@@ -4,7 +4,7 @@ sudo apt install curl
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 2 
 
 echo "=+=+=+=+=+=++=+=++=crypton=+=+=+=+=+=++=+=++="
-echo -e "\e[1m\e[32m6. ENTER_YOUR_ALCHEMY_HTTP_ADDRESS \e[0m"
+echo -e "\e[1m\e[32m ENTER_YOUR_ALCHEMY_HTTP_ADDRESS \e[0m"
 read -p "YOUR_ALCHEMY_HTTP_ADDRESS : " ALCHEMY
 
 echo 'export ALCHEMY='$ALCHEMY >> $HOME/.bash_profile
@@ -13,7 +13,7 @@ echo 'export ALCHEMY='$ALCHEMY >> $HOME/.bash_profile
 echo "=+=+=+=+=+=++=+=++=crypton=+=+=+=+=+=++=+=++="
 
 sleep 2
-sudo apt update -y && sudo apt install curl git tmux python3 python3-venv python3-dev build-essential libgmp-dev pkg-config libssl-dev -y
+sudo apt update -y && sudo apt install curl git tmux python3 python3.8-venv python3.8-dev build-essential libgmp-dev pkg-config libssl-dev -y
 sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
 rustup update stable --force
