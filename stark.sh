@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo apt install git
 sudo apt install curl
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 2 
 
@@ -30,9 +30,6 @@ cargo build --release --bin pathfinder
 sleep 2
 source $HOME/.bash_profile
 mv ~/pathfinder/target/release/pathfinder /usr/local/bin/
-
-echo "=+=+=+=+=+=++=+=++=crypton=+=+=+=+=+=++=+=++="
-echo -e "\e[1m\e[32m5. Creating servise... \e[0m" && sleep 1
 
 echo "[Unit]
 Description=StarkNet
