@@ -13,18 +13,12 @@ echo 'export ALCHEMY='$ALCHEMY >> $HOME/.bash_profile
 echo "=+=+=+=+=+=++=+=++=crypton=+=+=+=+=+=++=+=++="
 
 sleep 2
-sudo apt update
-sudo apt full-upgrade -y
-python3 -V
-sudo apt install -y python3-pip
-sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
-sudo apt-get install libgmp-dev
-pip3 install fastecdsa
-sudo apt-get install -y pkg-config
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo apt install cargo
-rustup update stable
-
+sudo apt update -y && sudo apt install curl git tmux python3 python3-venv python3-dev build-essential libgmp-dev pkg-config libssl-dev -y
+sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
+rustup update stable --force
+cd $HOME
+rm -rf pathfinder
 git clone -b v0.1.6-alpha https://github.com/eqlabs/pathfinder.git
 cd pathfinder/py
 python3 -m venv .venv
@@ -36,6 +30,9 @@ cargo build --release --bin pathfinder
 sleep 2
 source $HOME/.bash_profile
 mv ~/pathfinder/target/release/pathfinder /usr/local/bin/
+
+echo "=+=+=+=+=+=++=+=++=crypton=+=+=+=+=+=++=+=++="
+echo -e "\e[1m\e[32m Creating service... \e[0m"
 
 echo "[Unit]
 Description=StarkNet
